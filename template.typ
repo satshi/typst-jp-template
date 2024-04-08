@@ -70,7 +70,7 @@
   set align(center)
   text(1.5*fontsize, font:kakugothic, strong(title))
  
-　 　par(for a in authors {a})
+  par(for a in authors {a})
 
   par(date)
 
@@ -92,4 +92,6 @@
     #app
 ]
 
-#let 年月日 = "[year]年[month repr:numerical padding:none]月[day]日"
+#let 年月日 = "[year]年[month repr:numerical padding:none]月[day padding:none]日"
+
+#let 年月 = "[year]年[month repr:numerical padding:none]月"
