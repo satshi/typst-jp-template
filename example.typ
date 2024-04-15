@@ -33,6 +33,8 @@
 // expvalというコマンドを使うため。
 #import "@preview/physica:0.9.2": expval
 
+#outline()
+
 = 問題
 
 == 考える系

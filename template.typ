@@ -56,7 +56,14 @@
       it
     }
   }
-
+// 目次
+  show outline.entry.where(
+    level: 1
+  ): it => {
+    v(1.2*fontsize, weak: true)
+    it
+  }
+  set outline(indent: auto)
 // 図のキャプション
   set figure(gap: 1.6em)
   show figure.caption: it => [
