@@ -13,7 +13,7 @@
 
   set text(lang:"ja", font: (roman,mincho), fontsize)
 
-  //　Use A4 paper
+  // Use A4 paper
   set page(
     paper: "a4",
     margin: auto,
@@ -74,22 +74,22 @@
   0.9*fontsize)
   show figure.caption: set align(left)
   // タイトル
-  set align(center)
-  text(1.5*fontsize, font:kakugothic, strong(title))
- 
-  par(for a in authors {a})
+  {
+    set align(center)
+    text(1.5*fontsize, font:kakugothic, strong(title))
 
-  par(date)
+    par(for a in authors {a})
 
-  if abstract != [] {
-  par(text(0.9*fontsize,[
-   *概要*
-   
-  #block(width: 90%)[#align(left, abstract)]
-  ]))
+    par(date)
+
+    if abstract != [] {
+      par(text(0.9*fontsize,[
+        *概要*
+        
+      #block(width: 90%)[#align(left, abstract)]
+      ]))
+    }
   }
-  
-  set align(left)
   doc
 }
 
