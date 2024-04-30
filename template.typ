@@ -47,9 +47,12 @@
     let el = it.element
     if el != none and el.func() == eq {
       // Override equation references.
-      numbering(
+      link(
+        el.label,
+        numbering(
         el.numbering,
         ..counter(eq).at(el.location())
+        )
       )
     } else {
       // Other references as usual.
