@@ -6,10 +6,10 @@
   date: none,
   doc,
 ) = {
-  let roman = "STIX Two Text"
+  let roman = "Libertinus Serif"
   let mincho = "Harano Aji Mincho"
   let kakugothic = "Harano Aji Gothic"
-  let math_font = "STIX Two Math"
+  let math_font = "New Computer Modern Math"
 
   set text(lang:"ja", font: (roman,mincho), fontsize)
 
@@ -26,7 +26,7 @@
   justify: true,
   first-line-indent: 1.1em,
   )
-  show par: set block(spacing: 1.2em)
+  set par(spacing: 1.2em)
   show heading: set block(above: 1.6em, below: 0.6em)
   set heading(numbering: "1.1     ")
 // 見出しの下の段落を字下げするため
