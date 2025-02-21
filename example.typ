@@ -1,13 +1,16 @@
 // 今のところjarticleとappendixを定義している。
 #import "template.typ": *
+// expvalというコマンドを使うため。
+#import "@preview/physica:0.9.4": expval
+
 //オプションはfontsize, title, authors, date, abstract
-#show: doc => jarticle(
+#show: jarticle.with(
   fontsize: 11pt,
   title: [格子ゲージ理論の面積則の演習問題],
   authors: ([山口 哲（大阪大学）],),
   date: datetime.today().display(年月日),
-  abstract: [ここでは、簡単な格子ゲージ理論で強結合展開を考え、Wilsonループが面積則を示すことを見ることを確かめる。このことから、格子ゲージ理論では強結合で閉じ込め相にあることが分かる。],
-  doc,
+  abstract: [
+    ここでは、簡単な格子ゲージ理論で強結合展開を考え、Wilsonループが面積則を示すことを見ることを確かめる。このことから、格子ゲージ理論では強結合で閉じ込め相にあることが分かる。]
 )
 //// むしろ次のようにオプション無しで呼んでタイトルなどは必要なら自分で書くことを想定している。
 // #show: jarticle
@@ -30,8 +33,6 @@
 
 
 
-// expvalというコマンドを使うため。
-#import "@preview/physica:0.9.3": expval
 
 #outline()
 
@@ -45,7 +46,7 @@ $ Z = 1 / 2^V ∑_({a}) e^(- S (a) ) quad (V "は頂点の数") $
 である。
 
 == Wilsonループ
-この理論のWilsonループを考えよう。リンクを繋いでいってできるループ$C$に対してWilsonループ$W (C)$が定義され、その期待値は 
+この理論のWilsonループを考えよう。リンクを繋いでいってできるループ$C$に対してWilsonループ$W(C)$が定義され、その期待値は 
 $
 expval(W(C)) = 1/Z 1/2^V ∑_{a} e^(-S(a)) (-1)^(∑_(ℓ ∈ C)a_ℓ)
 $
@@ -64,13 +65,13 @@ $ expval(W(C)) ∼ exp(- T L_1 L_2) $
 = 解説
 
 == 分配関数
-@action より
+まず、分配関数について考える。@action より
 $ S (a) = - K ∑_(p ": plaquettes") (- 1)^(∑_(ℓ in p) a_ℓ) $
 として、分配関数は 
-$ Z = 1 / 2^V ∑_({ a }) e^(- S lr((a))) , $<pf>
-Wilsonループの期待値は
+$ Z = 1 / 2^V ∑_({ a }) e^(- S lr((a)))  $<pf>
+と表される。また、Wilsonループの期待値は
 $ expval(W (C)) = 1/Z 1/2^V ∑_({a}) e^(-S(a)) (-1)^(∑_(ℓ in C)a_(ℓ)) $<wl>
-と表される。これらを$K ≪ 1$の場合に$K$でべき展開し、その最低次を考える。
+と表される。これらを$K ≪ 1$の場合に$K$でべき展開し、その最低次を考えることにする。
 
 まず、分配関数は
 $ Z = 1 / 2^V ∑_({ a }) (1 + O (K)) = 2^(E - V) + O (K) $

@@ -29,17 +29,16 @@
   set par(spacing: 1.2em)
   show heading: set block(above: 1.6em, below: 0.6em)
   set heading(numbering: "1.1     ")
-// 見出しの下の段落を字下げするため
-  show heading: it =>{
-    it
-    par(text(size: 0pt, ""))
-  }
 // 様々な場所でのフォント
   show heading: set text(font: kakugothic)
   show strong: set text(font: kakugothic)
   show emph: set text(font: (roman, kakugothic))
   show math.equation: set text(font: (math_font,roman,mincho)) 
-
+// 見出しの下の段落を字下げするため
+  show heading: it =>{
+    it
+    par(text(size: 0pt, ""))
+  }
 // 数式番号
   set math.equation(numbering: "(1)")
   show ref: it => {
@@ -86,10 +85,9 @@
     par(date)
 
     if abstract != [] {
-      par(text(0.9*fontsize,[
-        *概要*
-        
-      #block(width: 90%)[#align(left, abstract)]
+      block(width:90%,text(0.9*fontsize,[
+        *概要* \ 
+      #align(left, abstract)
       ]))
     }
   }
