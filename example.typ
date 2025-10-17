@@ -31,7 +31,7 @@
 // ])
 // #set align(left)
 
-
+#show: numberwithin
 
 #outline()
 

@@ -100,6 +100,32 @@
     #app
 ]
 
+#let numberwithin(doc) = [
+  #set math.equation(numbering: (n, ..) => {
+    numbering("(1.1)", counter(heading).get().first(), n)
+  })
+  #set figure(numbering: (n, ..) => {
+    numbering("1.1", counter(heading).get().first(), n)
+  })
+
+  #show figure.caption: it => {
+    let pattern = "^[^:]+" + sym.space.nobreak + "[\d.]+"
+    show regex(pattern): strong
+    show regex(pattern): emph
+    // show regex(pattern): set text(weight: "bold")
+    // show regex(pattern): set text(style: "italic")
+    it
+  }
+  #show heading.where(level: 1): it => {
+    counter(math.equation).update(0)
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+    it
+  }
+  #doc
+]
+
 #let 年月日 = "[year]年[month repr:numerical padding:none]月[day padding:none]日"
 
 #let 年月 = "[year]年[month repr:numerical padding:none]月"
