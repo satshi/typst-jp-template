@@ -102,11 +102,13 @@
 
 #let numberwithin(doc) = [
   #set math.equation(numbering: (n, ..) => {
-    numbering("(1.1)", counter(heading).get().first(), n)
+    let sectionnumbering = heading.numbering.at(0)
+    numbering("("+sectionnumbering+".1)", counter(heading).get().first(), n)
   })
-  #set figure(numbering: (n, ..) => {
-    numbering("1.1", counter(heading).get().first(), n)
-  })
+  // #set figure(numbering: (n, ..) => {
+  //   let sectionnumbering = heading.numbering.at(0)
+  //   numbering(sectionnumbering+".1", counter(heading).get().first(), n)
+  // })
 
   #show figure.caption: it => {
     let pattern = "^[^:]+" + sym.space.nobreak + "[\d.]+"
