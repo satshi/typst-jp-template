@@ -1,7 +1,7 @@
 // 今のところjarticleとappendixを定義している。
 #import "template.typ": *
 // expvalというコマンドを使うため。
-#import "@preview/physica:0.9.4": expval
+#import "@preview/physica:0.9.6": expval
 
 //オプションはfontsize, title, authors, date, abstract
 #show: jarticle.with(
@@ -30,7 +30,6 @@
 //  )]
 // ])
 // #set align(left)
-
 
 
 
